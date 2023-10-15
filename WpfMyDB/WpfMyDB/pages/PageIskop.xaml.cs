@@ -95,8 +95,7 @@ namespace WpfMyDB.pages
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            ClassFrame.frmObj.
-                Navigate(new PageAddEdit());
+            ClassFrame.frmObj.Navigate(new PageAddEdit(null));
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -128,6 +127,12 @@ namespace WpfMyDB.pages
                 {
                     MessageBox.Show(ex.Message.ToString());
                 }
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            ClassFrame.frmObj.
+                Navigate(new PageAddEdit((sender as Button).DataContext as Iskop));
         }
     }
 }

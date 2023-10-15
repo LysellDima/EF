@@ -22,8 +22,9 @@ namespace WpfMyDB.pages
     public partial class PageAddEdit : Page
     {
         private Iskop Isk = new Iskop();
+        private Iskop dishes;
 
-        public PageAddEdit()
+        public PageAddEdit(Iskop dishlocal)
         {
             InitializeComponent();
 
@@ -37,11 +38,13 @@ namespace WpfMyDB.pages
             CmbMine.SelectedValuePath = "ID_Mine";
             CmbMine.DisplayMemberPath = "Mine_Name";
 
+            if (dishlocal != null)
+                dishes = dishlocal;
+
             //создаем контекст
 
             DataContext = Isk;
         }
-
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             if (Isk.ID == 0)

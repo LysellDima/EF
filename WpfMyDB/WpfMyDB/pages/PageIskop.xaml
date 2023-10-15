@@ -70,6 +70,17 @@
                 <DataGridTextColumn
                     Header="Месторождение"
                     Binding="{Binding Mine.Mine_name}"/>
+                <DataGridTemplateColumn
+                            Header="Действия"
+                            Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnEdit"
+                                    Click="BtnEdit_Click"
+                                    Content="Редактировать"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
