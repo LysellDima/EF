@@ -1,0 +1,76 @@
+﻿<Page x:Class="WpfMyDB.pages.PageIskop"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfMyDB.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="PageIskop">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Center">
+            <TextBlock Text="Фильтр по ед.измерения"
+                       Margin="5"/>
+            <ComboBox Name="CmbUnit"
+                      SelectionChanged="CmbUnit_SelectionChanged"/>
+
+            <TextBlock Text="Поиск по названию"
+                       Margin="5"/>
+            <TextBox Name="TxtSearch" Margin="5"
+                     TextChanged="TxtSearch_TextChanged"/>
+
+            <TextBlock Text="Сортировка по цене"
+                       Margin="5"/>
+            <RadioButton Content="По возрастанию"
+                 Name="RbtnAsc"
+                 Click="RbtnAsc_Click"/>
+            <RadioButton Content="По убыванию"
+                 Name="RbtnDesc"
+                 Click="RbtnDesc_Click"/>
+
+            <Button Name="BtnResults"
+        Content="Анализ данных"
+            Margin="5"
+            Click="BtnResults_Click"/>
+            <ListBox Name="LstResults"
+             Height="150"
+             Margin="5"/>
+
+            <Button Name="BtnAdd"
+            Margin="5"
+            Content="Добавить"
+            Click="BtnAdd_Click"/>
+
+            <Button Name="BtnDelete"
+            Margin="5"
+            Content="Удалить"
+            Click="BtnDelete_Click"/>
+
+
+        </StackPanel>
+        <DataGrid Grid.Column="1" 
+    Name="DtgListIskop"
+          AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Название"
+                    Binding="{Binding Name}"/>
+                <DataGridTextColumn
+                    Header="Ед.измерения"
+                    Binding="{Binding Sale1.Unit}"/>
+                <DataGridTextColumn
+                    Header="Цена"
+                    Binding="{Binding Sale}"/>
+                <DataGridTextColumn
+                    Header="Месторождение"
+                    Binding="{Binding Mine.Mine_name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
